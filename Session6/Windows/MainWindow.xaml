@@ -1,0 +1,378 @@
+﻿<Window x:Class="Session6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Session6"
+        mc:Ignorable="d"
+        Title="AMONIC Airlines Short Summary"
+        Height="800"
+        Width="820"
+        MinHeight="800"
+        MinWidth="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*" />
+            <RowDefinition />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.2*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="/Images/WSC2017_TP09_color@4x.png"
+               Margin="15" />
+
+        <GroupBox Grid.Row="1"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="10">
+            <GroupBox.Header>
+                In the last 30 days
+            </GroupBox.Header>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <GroupBox Grid.Row="0"
+                          Grid.Column="0"
+                          BorderBrush="Black"
+                          BorderThickness="2"
+                          Margin="5">
+
+                    <GroupBox.Header>
+                        Flights
+                    </GroupBox.Header>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Text="Number confirmed:"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock x:Name="NumberConfirmedTextBox"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="[ xxx ]"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock Grid.Row="1"
+                                   Text="Number cancelled:"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock x:Name="NumberCancelledTextBox"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="[ xxx ]"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock Grid.Row="2"
+                                   Text="Average daily flight time:"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock 
+                            x:Name="AverageFlightTimeTextBox"
+                            Grid.Row="2"
+                                   Grid.Column="1"
+                                   Text="[ xxx ] minutes"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+
+                    </Grid>
+
+
+
+                </GroupBox>
+
+                <GroupBox Grid.Row="0"
+                          Grid.Column="1"
+                          BorderBrush="Black"
+                          BorderThickness="2"
+                          Margin="5">
+
+                    <GroupBox.Header>
+                        Top Customers (Number of purchases)
+                    </GroupBox.Header>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left">
+
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}1. {0} {1} ({2} Tickets)">
+                                    <Binding Path="TopCustomerList[0].Firstname" />
+                                    <Binding Path="TopCustomerList[0].Lastname" />
+                                    <Binding Path="TopCustomerList[0].TicketCount" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                            
+                            
+                            
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="1"                                   
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left">
+
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}2. {0} {1} ({2} Tickets)">
+                                    <Binding Path="TopCustomerList[1].Firstname" />
+                                    <Binding Path="TopCustomerList[1].Lastname" />
+                                    <Binding Path="TopCustomerList[1].TicketCount" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+
+
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="2"                                   
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left">
+
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}3. {0} {1} ({2} Tickets)">
+                                    <Binding Path="TopCustomerList[2].Firstname" />
+                                    <Binding Path="TopCustomerList[2].Lastname" />
+                                    <Binding Path="TopCustomerList[2].TicketCount" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+
+
+                        </TextBlock>
+
+
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Grid.Row="1"
+                          Grid.Column="0"
+                          BorderBrush="Black"
+                          BorderThickness="2"
+                          Margin="5">
+
+                    <GroupBox.Header>
+                        Number of passengers flying
+                    </GroupBox.Header>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Busiest day: "
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock 
+                            x:Name="BusiestDayTextBlock"
+                            Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="[ dd/mm ] with [ xxx ] flying"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                        <TextBlock Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Most quiet day: "
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+
+                        <TextBlock 
+                            x:Name="QuietestDayTextBlock"
+                            Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="[ dd/mm ] with [ xxx ] flying"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0" />
+
+                    </Grid>
+
+
+                </GroupBox>
+
+                <GroupBox Grid.Row="1"
+                          Grid.Column="1"
+                          BorderBrush="Black"
+                          BorderThickness="2"
+                          Margin="5">
+
+                    <GroupBox.Header>
+                        Top AMONIC Airlines Offices (Revenue)
+                    </GroupBox.Header>
+
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Text="{Binding Path=TopOfficeList[0].Name , StringFormat='{}1. {0}'}"
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left" />
+
+                        <TextBlock Grid.Row="1"
+                                   Text="{Binding Path=TopOfficeList[1].Name , StringFormat='{}2. {0}'}"
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left" />
+
+                        <TextBlock Grid.Row="2"
+                                   Text="{Binding Path=TopOfficeList[2].Name , StringFormat='{}3. {0}'}"
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Left" />
+
+
+                    </Grid>
+
+
+                </GroupBox>
+
+            </Grid>
+
+
+        </GroupBox>
+
+
+        <GroupBox Grid.Row="2"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="10">
+            <GroupBox.Header>
+                Revenue from ticket sales
+            </GroupBox.Header>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock 
+                    x:Name="YesterdayRevenueTextBlock"
+                    Grid.Column="0"
+                           Text="Yesterday: $[ xxxx ]" />
+
+                <TextBlock x:Name="TwoDaysAgoRevenueTextBlock"
+                           Grid.Column="1"
+                           Text="Two days ago: $[ xxxx ]" />
+
+                <TextBlock x:Name="ThreeDaysAgoRevenueTextBlock"
+                           Grid.Column="2"
+                           Text="Three days ago: $[ xxxx ]" />
+
+
+            </Grid>
+
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="3"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="10">
+            <GroupBox.Header>
+                Weekly report of percentage of empty seats
+            </GroupBox.Header>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock 
+                    x:Name="ThisWeekSeatsTextBlock"
+                    Grid.Column="0"
+                           Text="This week: [ xx ] %" />
+
+                <TextBlock x:Name="LastWeekSeatsTextBlock"
+                           Grid.Column="1"
+                           Text="Last week: [ xx ] %" />
+
+                <TextBlock x:Name="TwoWeekBeforeSeatsTextBlock"
+                           Grid.Column="2"
+                           Text="Two weeks ago: [ xx ] %" />
+
+
+            </Grid>
+
+        </GroupBox>
+
+        <TextBlock 
+            x:Name="LoadTimeTextBox"
+            Grid.Row="4"
+                   HorizontalAlignment="Left"
+                   Margin="10 0 0 0"
+                   Text="{Binding Path=StartupTime, StringFormat='{} Report generated in {0:} seconds'}" />
+
+        <Button x:Name="ExitButton"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                Margin="0 0 10 0"
+                Content="Exit"
+                Background="Red"
+                Click="ExitButton_Click">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius"
+                            Value="5" />
+                </Style>
+            </Button.Resources>
+
+
+        </Button>
+
+    </Grid>
+</Window>
